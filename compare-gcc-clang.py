@@ -1,20 +1,25 @@
 #!/usr/bin/env python
 
 gcc="/usr/bin/gcc"
+clang="/usr/bin/clang"
 
 import os
 import time
 
-print ("::Testing gcc installed")
+print ("::Testing gcc and clang installed")
 if not os.path.exists(gcc):
     print("::>gcc not installed")
 else:
     print("::>GCC installed")
 
+if not os.path.exists(clang):
+    print("::>clang not installed")
+else:
+    print("::>clang installed")
+
 if  os.path.exists(gcc):
-    print("::===Benchmarking C===")
-    print("::Compling pi.c..")
-    
+    print("::===Testing GCC benchmark===")
+
     t=time.time()
     os.system("gcc -O2 pi.c -o pi -march=native")
     tc1=time.time()-t
@@ -26,18 +31,22 @@ if  os.path.exists(gcc):
     print("::>Calc time:{0}".format(t1))
     os.system("rm pi")
 
+if os.path.exists(clang):
     print("::Wait 10 seconds")
     time.sleep(10)
-    print("::===Benchmarking GMP===")
+    print("::===Testing Clang benchmark===")
 
     t=time.time()
-    os.system("g++ -O2 gmpi.cpp -o gmpi -march=native -lgmp -lgmpxx")
+    os.system("clang -O2 pi.c -o pi -march=native")
     tc2=time.time()-t
     print("::>Complie time:{0}".format(tc2))
 
     t=time.time()
-    os.system("./gmpi>/dev/null")
+    os.system("./pi>/dev/null")
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
-    os.system("rm gmpi")
+    os.system("rm pi")
 
+if os.path.exists(clang) and os.path.exists(gcc):
+    print("::>clang complie time is {0:.2f}% to GCC".format(100*tc2/tc1))
+    print("::>clang calc time is {0:.2f}% to GCC".format(100*t2/t1))
