@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define L 30000
+#define L 100000
 #define N L/4+1
 // L 为位数，N是array长度
 void add(int *, int *, int*);

@@ -21,7 +21,7 @@ if  os.path.exists(gcc):
     print("::===Testing GCC benchmark===")
 
     t=time.time()
-    os.system("gcc -O2 pi.c -o pi")
+    os.system("gcc -O2 pi.c -o pi -march=native")
     tc1=time.time()-t
     print("::>Complie time:{0}".format(tc1))
 
@@ -30,11 +30,13 @@ if  os.path.exists(gcc):
     t1=time.time()-t
     print("::>Calc time:{0}".format(t1))
     os.system("rm pi")
+print("::Wait 10 seconds")
+time.sleep(10)
 print("::===Testing Clang benchmark===")
 
 if os.path.exists(clang):
     t=time.time()
-    os.system("clang -O2 pi.c -o pi")
+    os.system("clang -O2 pi.c -o pi -march=native")
     tc2=time.time()-t
     print("::>Complie time:{0}".format(tc2))
 

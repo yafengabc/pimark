@@ -1,6 +1,6 @@
 # pimark
 
-This is a pi benchmark to calc 30,000 pi
+This is a pi benchmark to calc 100,000 pi
 
 you should install gcc clang and python to test
 
