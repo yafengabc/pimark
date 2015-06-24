@@ -29,6 +29,7 @@ if  os.path.exists(gcc):
     print("::Wait 10 seconds")
     time.sleep(10)
     print("::===Benchmarking GMP===")
+    print("::Compling gmpi.cpp..")
 
     t=time.time()
     os.system("g++ -O2 gmpi.cpp -o gmpi -march=native -lgmp -lgmpxx")
