@@ -30,6 +30,7 @@ int main()
         else
             s=s-q;
     }
+
     string str=s.get_str(exp);
     str.insert(exp,".");
     cout<<str<<endl;

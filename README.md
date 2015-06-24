@@ -19,6 +19,6 @@ Calc the pi using the C language
 
 ##gmpi.cpp
 
-Calc the pi using the C++ language and gmp library
+Calc the pi using the C++ language and gmp library  
 用GMP库自己改写的，算法跟上边的一样，效率完爆C版
 
