@@ -22,3 +22,7 @@ Calc the pi using the C language
 Calc the pi using the C++ language and gmp library  
 用GMP库自己改写的，算法跟上边的一样，效率完爆C版
 
+##verifipi.py
+
+compare the result with pi.c and gmpi.cpp  
+比较C版与GMP版的结果。两者当然应该是一样的。
