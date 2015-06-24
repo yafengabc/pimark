@@ -3,14 +3,18 @@
 This is a pi benchmark to calc 100,000 pi  
 这是一个计算10万位圆周率的测试程序，
 
-you should install gcc clang python gmp to test  
-测试前需要安装好gcc、clang、python、gmp，
+you should install gcc python and gmp to test  
+测试前需要安装好gcc、python、gmp，
 
-make sure your gcc and clang work  
-确定你的gcc与clang处于可用状态，
+if you want to compare gcc and clang,please install clang.  
+如果想比较GCC、clang的效率，请安装clang。
+顺便说一句，gmp算法应该比不出啥来，因为算法本身依赖gmp  
+而系统gmp一般是gcc编译的，等于gcc自己跟自己比了，除非  
+重新用clang编译gmp。
 
-and run test.py to run the banchmark  
-运行test.py来测试
+
+run `./test.py` to run the banchmark  
+运行`./test.py`来测试
 
 ##pi.c:
 
