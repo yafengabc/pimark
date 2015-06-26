@@ -1,9 +1,22 @@
 #!/usr/bin/env python
 
 gcc="/usr/bin/gcc"
-
+cpuinfo="/proc/cpuinfo"
 import os
 import time
+
+fi=open(cpuinfo)
+rd=fi.readlines()
+fi.close()
+li1=[]
+li2=[]
+for i in rd:
+    if i.find("model name")==0:
+        li1=i.split(":")
+    if i.find("Hardware")==0:
+        li2=i.split(":")
+print (li1)
+print (li2)
 
 print ("::Testing gcc installed")
 if not os.path.exists(gcc):
