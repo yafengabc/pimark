@@ -1,7 +1,7 @@
 from bottle import post,request,run,debug,route
 import json
 import sqlite3
-
+import makehtml
 def insertdb(dat):
     print("open the datebase")
     db=sqlite3.connect("test.db")
@@ -15,8 +15,6 @@ def insertdb(dat):
     db.commit()
     pass
 
-def makehtml():
-    pass
 
 @route('/')
 def index():
@@ -30,7 +28,7 @@ def postd():
     datas=data.read().decode('utf-8')
     print(datas)
     insertdb(datas)
-    makehtml()
+    makehtml.makehtml()
     return "Post OK\n" 
 
 #run(server="paste",host="0.0.0.0")
