@@ -53,7 +53,7 @@ if  os.path.exists(gcc):
     t1=time.time()-t
     print("::>Calc time:{0}".format(t1))
     os.system("rm pi")
-    result["PIC"]=t1
+    result["PIC"]="{0:.3F}".format(t1)
 
     print("::Wait 10 seconds")
     time.sleep(10)
@@ -70,7 +70,7 @@ if  os.path.exists(gcc):
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
     os.system("rm gmpi")
-    result["GMPI"]=t2
+    result["GMPI"]="{0:.3f}".format(t2)
 
 ####Commit the result to internel
 import urllib
