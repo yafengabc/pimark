@@ -4,7 +4,15 @@ gcc="/usr/bin/gcc"
 cpuinfo="/proc/cpuinfo"
 import os
 import time
+result={"CPU":"","HW":"","GCC":"","kernel":"","PIC":"","GMPI":""}
 
+###Get the kernel version
+fi=open("/proc/version")
+rd=fi.read()
+fi.close()
+li=rd.split()
+result["kernel"]=li[2]
+###Get the cpuinfo###
 fi=open(cpuinfo)
 rd=fi.readlines()
 fi.close()
@@ -13,16 +21,20 @@ li2=[]
 for i in rd:
     if i.find("model name")==0:
         li1=i.split(":")
+        result["CPU"]=li1[1].strip()
     if i.find("Hardware")==0:
         li2=i.split(":")
-print (li1)
-print (li2)
+        result["HW"]=li2[1].strip()
 
 print ("::Testing gcc installed")
 if not os.path.exists(gcc):
     print("::>gcc not installed")
 else:
     print("::>GCC installed")
+    ##Get the GCC version##
+    pip=os.popen("gcc -dumpversion")
+    result["GCC"]=pip.read().strip()
+    pip.close()
 
 if  os.path.exists(gcc):
     print("::===Benchmarking C===")
@@ -38,6 +50,7 @@ if  os.path.exists(gcc):
     t1=time.time()-t
     print("::>Calc time:{0}".format(t1))
     os.system("rm pi")
+    result["PIC"]=t1
 
     print("::Wait 10 seconds")
     time.sleep(10)
@@ -54,4 +67,13 @@ if  os.path.exists(gcc):
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
     os.system("rm gmpi")
+    result["GMPI"]=t2
 
+####Commit the result to internel
+print("::Start to commit the result to internel...")
+import urllib
+import urllib.parse
+import urllib.request
+url="http://192.168.1.169:8080/send"
+pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
+print("::{0}".format(pst.read().decode().strip()))
