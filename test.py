@@ -70,10 +70,11 @@ if  os.path.exists(gcc):
     result["GMPI"]=t2
 
 ####Commit the result to internel
-print("::Start to commit the result to internel...")
 import urllib
 import urllib.parse
 import urllib.request
 url="http://104.160.34.189:8080/send"
-pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
-print("::{0}".format(pst.read().decode().strip()))
+if os.path.exists(gcc):
+    print("::Start to commit the result to internel...")
+    pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
+    print("::{0}".format(pst.read().decode().strip()))
