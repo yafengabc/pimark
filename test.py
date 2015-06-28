@@ -33,8 +33,11 @@ else:
     print("::>GCC installed")
     ##Get the GCC version##
     pip=os.popen("gcc -dumpversion")
-    result["GCC"]=pip.read().strip()
+    pip2=os.popen("gcc -dumpmachine")
+    
+    result["GCC"]=pip.read().strip()+":"+pip2.read().strip()
     pip.close()
+    pip2.close()
 
 if  os.path.exists(gcc):
     print("::===Benchmarking C===")
