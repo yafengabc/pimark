@@ -81,3 +81,4 @@ if os.path.exists(gcc):
     print("::Start to commit the result to internel...")
     pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     print("::{0}".format(pst.read().decode().strip()))
+    print("::Visit:http://yafeng.linuxd.org/pimark.htm")
