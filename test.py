@@ -49,8 +49,9 @@ if  os.path.exists(gcc):
     print("::>Complie time:{0}".format(tc1))
 
     t=time.time()
-    os.system("./pi>/dev/null")
+    os.system("./pi>pi.txt")
     t1=time.time()-t
+    sizepi=os.path.getsize('pi.txt')
     print("::>Calc time:{0}".format(t1))
     os.system("rm pi")
     result["PIC"]="{0:.3F}".format(t1)
@@ -64,11 +65,13 @@ if  os.path.exists(gcc):
     os.system("g++ -O2 gmpi.cpp -o gmpi -march=native -lgmp -lgmpxx")
     tc2=time.time()-t
     print("::>Complie time:{0}".format(tc2))
+    sizegmpi=os.path.getsize('gmpi')
 
     t=time.time()
-    os.system("./gmpi>/dev/null")
+    os.system("./gmpi>pi.txt")
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
+    sizegmpi=os.path.getsize('pi.txt')
     os.system("rm gmpi")
     result["GMPI"]="{0:.3f}".format(t2)
 
@@ -82,3 +85,4 @@ if os.path.exists(gcc):
     pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     print("::{0}".format(pst.read().decode().strip()))
     print("::Visit:http://yafeng.linuxd.org/pimark.htm")
+    print("{0},{1}".format(sizepi,sizegmpi))
