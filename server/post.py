@@ -33,5 +33,5 @@ def postd():
     makehtml()
     return "Post OK\n" 
 
-run(server="paste",host="0.0.0.0")
-#run(host="0.0.0.0",debug=True)
+#run(server="paste",host="0.0.0.0")
+run(host="0.0.0.0")
