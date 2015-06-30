@@ -4,7 +4,12 @@ This is a pi benchmark to calc 100,000 pi
 这是一个计算10万位圆周率的测试程序，
 
 you should install gcc python and gmp to test  
-测试前需要安装好gcc、python、gmp，
+测试前需要安装好gcc、python、gmp，   
+
+if you use debian,unbuntu,please install gcc g++  
+ python3 and libgmp-dev   
+如果使用的是ubuntu、debian等deb系统，请安装gcc   
+g++ python3 libgmp-dev   
 
 if you want to compare gcc and clang,please install clang.  
 如果想比较GCC、clang的效率，请安装clang。
