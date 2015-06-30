@@ -11,6 +11,11 @@ if you use debian,unbuntu,please install gcc g++
 如果使用的是ubuntu、debian等deb系统，请安装gcc   
 g++ python3 libgmp-dev   
 
+the test result is in：   
+测试结果在：   
+
+<http://yafeng.linuxd.org/pimark.htm>   
+
 if you want to compare gcc and clang,please install clang.  
 如果想比较GCC、clang的效率，请安装clang。
 顺便说一句，gmp算法应该比不出啥来，因为算法本身依赖gmp  
