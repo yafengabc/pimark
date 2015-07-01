@@ -14,7 +14,8 @@ g++ python3 libgmp-dev
 the test result is in：   
 测试结果在：   
 
-<http://yafeng.linuxd.org/pimark.htm>   
+Order by C：<http://yafeng.linuxd.org/pimark.htm>   
+Order by GMP：<http://yafeng.linuxd.org/gmpimark.htm>   
 
 if you want to compare gcc and clang,please install clang.  
 如果想比较GCC、clang的效率，请安装clang。
@@ -27,7 +28,6 @@ run `./test.py` to run the banchmark
 运行`./test.py`来测试
 
 ##pi.c:
-
 Calc the pi using the C language  
 用C写的计算圆周率的程序，网上抄的，经典的J.Marchin公式.
 
