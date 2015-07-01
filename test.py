@@ -53,7 +53,7 @@ if  os.path.exists(gcc):
     t1=time.time()-t
     sizepi=os.path.getsize('pi.txt')
     print("::>Calc time:{0}".format(t1))
-    os.system("rm pi")
+    os.system("rm pi pi.txt")
     result["PIC"]="{0:.3F}".format(t1)
 
     print("::Wait 10 seconds")
@@ -72,7 +72,7 @@ if  os.path.exists(gcc):
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
     sizegmpi=os.path.getsize('pi.txt')
-    os.system("rm gmpi")
+    os.system("rm gmpi pi.txt")
     result["GMPI"]="{0:.3f}".format(t2)
 
 ####Commit the result to internel
@@ -80,9 +80,11 @@ import urllib
 import urllib.parse
 import urllib.request
 url="http://104.160.34.189:8080/send"
-if os.path.exists(gcc):
+if sizepi==100003 and sizegmpi==100012:
+    print("::File size is{0},{1}..OK".format(sizepi,sizegmpi))
     print("::Start to commit the result to internel...")
     pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     print("::{0}".format(pst.read().decode().strip()))
     print("::Visit:http://yafeng.linuxd.org/pimark.htm")
-    print("{0},{1}".format(sizepi,sizegmpi))
+else:
+    print("!!! File size is not ok!")
