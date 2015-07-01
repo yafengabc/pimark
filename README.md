@@ -27,10 +27,13 @@ if you want to compare gcc and clang,please install clang.
 
 `git clone https://github.com/yafengabc/pimark.git`
 
-Or download the zip file：
+Or download the zip file：  
 或者下载zip文件：
 
 ` wget https://github.com/yafengabc/pimark/archive/master.zip`
+
+and unzip it.  
+并且解压缩。
 
 ##执行（test）：
 run `./test.py` to run the banchmark  
