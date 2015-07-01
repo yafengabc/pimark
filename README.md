@@ -9,7 +9,7 @@ you should install gcc python and gmp to test
 if you use debian,unbuntu,please install gcc g++  
  python3 and libgmp-dev   
 如果使用的是ubuntu、debian等deb系统，请安装gcc   
-g++ python3 libgmp-dev   
+g++ python libgmp-dev   
 
 the test result is in：   
 测试结果在：   
@@ -36,8 +36,10 @@ and unzip it.
 并且解压缩。
 
 ##执行（test）：
-run `./test.py` to run the banchmark  
-运行`./test.py`来测试
+run `./test.py` to run the benchmark  
+运行`./test.py`来测试  
+run `./test.py2` to run the benchmark with python2  
+python2环境下运行`./test.py2`来测试  
 
 ##pi.c:
 Calc the pi using the C language  

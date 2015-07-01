@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from bottle import post,request,run,debug,route
 import json
 import sqlite3
