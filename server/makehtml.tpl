@@ -2,8 +2,8 @@
 <title>The Pimark Result</title>
 </head>
 <body>
-<p><h1>This is the All Result asc by {{pi}}<h1>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="pimark.htm">Order by C</a>
-&nbsp&nbsp&nbsp<a href="gmpimark.htm">Order by GMP</a></p>
+<p><h1>This is the All Result Order by {{pi}}</h1></p>
+<p><a href="pimark.htm">Order by C</a>&nbsp&nbsp&nbsp<a href="gmpimark.htm">Order by GMP</a></p>
 
 <table border="1">
     <tr>
