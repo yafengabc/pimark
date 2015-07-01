@@ -30,7 +30,7 @@ if you want to compare gcc and clang,please install clang.
 Or download the zip file：
 或者下载zip文件：
 
-` wget `
+` wget https://github.com/yafengabc/pimark/archive/master.zip`
 
 ##执行（test）：
 run `./test.py` to run the banchmark  
