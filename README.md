@@ -23,7 +23,16 @@ if you want to compare gcc and clang,please install clang.
 而系统gmp一般是gcc编译的，等于gcc自己跟自己比了，除非  
 重新用clang编译gmp。
 
+##安装（install）：
 
+`git clone https://github.com/yafengabc/pimark.git`
+
+Or download the zip file：
+或者下载zip文件：
+
+` wget `
+
+##执行（test）：
 run `./test.py` to run the banchmark  
 运行`./test.py`来测试
 
