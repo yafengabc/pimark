@@ -76,6 +76,7 @@ if  os.path.exists(gcc):
     print("::===Benchmarking GMP===")
     print("::Compling gmpi.cpp..")
 
+    import multiprocessing
     t=time.time()
     os.system("g++ -O2 gmpi.cpp -o gmpi -march=native -lgmp -lgmpxx")
     tc2=time.time()-t
@@ -101,7 +102,7 @@ if  os.path.exists(gcc):
     tc2=time.time()-t
     print("::>Complie time:{0}".format(tc2))
     t=time.time()
-    os.system("./mtgmpi {0} >pi.txt".format(os.cpu_count()))
+    os.system("./mtgmpi {0} >pi.txt".format(multiprocessing.cpu_count()))
     t2=time.time()-t
     print("::>Calc time:{0}".format(t2))
     sizemtgmpi=os.path.getsize('pi.txt')
