@@ -12,9 +12,14 @@ def insertdb(dat):
     dat=dat.replace("'",'"')
     dat=json.loads(dat)
     print (dat)
-    db.execute("insert into pimark values(?,?,?,?,?,?)",\
-            (dat["CPU"],dat["HW"],dat["kernel"],dat["GCC"],dat["PIC"],dat["GMPI"]))
-    db.commit()
+    if dat["USER"]:
+        db.execute("insert into pimark values(?,?,?,?,?,?,?,?)",\
+                (dat["CPU"],dat["HW"],dat["kernel"],dat["GCC"],dat["PIC"],dat["GMPI"],dat["MTGMPI"],dat["USER"]))
+        db.commit()
+    else:
+        db.execute("insert into pimark values(?,?,?,?,?,?,?,?)",\
+                (dat["CPU"],dat["HW"],dat["kernel"],dat["GCC"],dat["PIC"],dat["GMPI"],"",""))
+        db.commit()
     pass
 
 

@@ -3,7 +3,10 @@
 </head>
 <body>
 <p><h1>This is the All Result Order by {{pi}}</h1></p>
-<p><a href="pimark.htm">Order by C</a>&nbsp&nbsp&nbsp<a href="gmpimark.htm">Order by GMP</a></p>
+<p><a href="pimark.htm">Order by C</a>
+	&nbsp&nbsp&nbsp<a href="gmpimark.htm">Order by GMP</a>
+	&nbsp&nbsp&nbsp<a href="mtgmpimark.htm">Order by GMP</a>
+</p>
 <table border="1">
     <tr>
         <td>Top</td>
@@ -13,6 +16,8 @@
         <td>GCC Version and ARCH</td>
         <td>C</td>
         <td>GMP</td>
+        <td>MtGMP</td>
+        <td>USER</td>
     <tr>
 %top=1
 %for row in rows:

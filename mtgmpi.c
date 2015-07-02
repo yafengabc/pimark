@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
         pnum=atoi(argv[1]);
     }
 
-    fprintf(stderr,"Number of Thread: %d\n",pnum);
+    fprintf(stderr,"::Number of Thread: %d\n",pnum);
 
     gettimeofday(&t0, NULL);
 

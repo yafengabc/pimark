@@ -4,8 +4,9 @@ gcc="/usr/bin/gcc"
 cpuinfo="/proc/cpuinfo"
 import os
 import time
-result={"CPU":"","HW":"","GCC":"","kernel":"","PIC":"","GMPI":""}
-
+import getpass
+result={"CPU":"","HW":"","GCC":"","kernel":"","PIC":"","GMPI":"","MTGMPI":"","USER":""}
+result["USER"]=getpass.getuser()
 ###Get the kernel version
 fi=open("/proc/version")
 rd=fi.read()
@@ -18,6 +19,8 @@ rd=fi.readlines()
 fi.close()
 li1=[]
 li2=[]
+li3=[]
+li4=[]
 for i in rd:
     if i.find("model name")==0:
         li1=i.split(":")
@@ -25,6 +28,15 @@ for i in rd:
     if i.find("Hardware")==0:
         li2=i.split(":")
         result["HW"]=li2[1].strip()
+    if i.find("cpu model")==0:
+        li3=i.split(":")
+        if result["HW"]=="":
+            result["HW"]==li3[1].strip()
+    if i.find("Processor")==0:
+        li4=i.split(":")
+        if result["CPU"]=="":
+            result["CPU"]==li4[1].strip()
+
 
 print ("::Testing gcc installed")
 if not os.path.exists(gcc):
@@ -40,6 +52,7 @@ else:
     pip2.close()
 
 if  os.path.exists(gcc):
+#####======Benchmarking C===============
     print("::===Benchmarking C===")
     print("::Compling pi.c..")
     
@@ -58,6 +71,7 @@ if  os.path.exists(gcc):
 
     print("::Wait 10 seconds")
     time.sleep(10)
+#####======Benchmarking GMPi===============
     print("::===Benchmarking GMP===")
     print("::Compling gmpi.cpp..")
 
@@ -75,19 +89,39 @@ if  os.path.exists(gcc):
     os.system("rm gmpi pi.txt")
     result["GMPI"]="{0:.3f}".format(t2)
 
+    print("::Wait 10 seconds")
+    time.sleep(10)
+#####======Benchmarking mtGMPi===============
+    print("::===Benchmarking mtGMPi Mutithread===")
+    print("::Compling mtgmpi.c..")
+    import multiprocessing
+    t=time.time()
+    os.system("gcc -O2 mtgmpi.c -o mtgmpi -march=native -lgmp -lpthread")
+    tc2=time.time()-t
+    print("::>Complie time:{0}".format(tc2))
+    t=time.time()
+    os.system("./mtgmpi {0} >pi.txt".format(multiprocessing.cpu_count()))
+    t2=time.time()-t
+    print("::>Calc time:{0}".format(t2))
+    sizemtgmpi=os.path.getsize('pi.txt')
+    os.system("rm mtgmpi pi.txt")
+    result["MTGMPI"]="{0:.3f}".format(t2)
+
+
 ####Commit the result to internel
 import urllib
 import urllib2
-
 url="http://104.160.34.189:8080/send"
 #url="http://127.0.0.1:8080/send"
-if sizepi==100003 and sizegmpi==100012:
-    print("::File size is{0},{1}..OK".format(sizepi,sizegmpi))
+if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
+    print("::File size is{0},{1},{2}..OK".format(sizepi,sizegmpi,sizemtgmpi))
     print("::Start to commit the result to internel...")
+    #print(result)
     #pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     pst=urllib2.Request(url,str(result).encode('utf-8'))
     response = urllib2.urlopen(pst)
     print("::{0}".format(response.read().decode().strip()))
+    #print("::{0}".format(pst.read().decode().strip()))
     print("::Visit:http://yafeng.linuxd.org/pimark.htm")
 else:
     print("!!! File size is not ok!")
