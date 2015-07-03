@@ -5,8 +5,9 @@ cpuinfo="/proc/cpuinfo"
 import os
 import time
 import getpass
+import socket
 result={"CPU":"","HW":"","GCC":"","kernel":"","PIC":"","GMPI":"","MTGMPI":"","USER":""}
-result["USER"]=getpass.getuser()
+result["USER"]=getpass.getuser()+": "+socket.gethostname()
 ###Get the kernel version
 fi=open("/proc/version")
 rd=fi.read()

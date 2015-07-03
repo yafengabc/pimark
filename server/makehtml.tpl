@@ -5,7 +5,7 @@
 <p><h1>This is the All Result Order by {{pi}}</h1></p>
 <p><a href="pimark.htm">Order by C</a>
 	&nbsp&nbsp&nbsp<a href="gmpimark.htm">Order by GMP</a>
-	&nbsp&nbsp&nbsp<a href="mtgmpimark.htm">Order by GMP</a>
+	&nbsp&nbsp&nbsp<a href="mtgmpimark.htm">Order by MP GMP</a>
 </p>
 <table border="1">
     <tr>
