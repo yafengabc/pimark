@@ -14,8 +14,8 @@ g++ python libgmp-dev
 the test result is in：   
 测试结果在：   
 
-Order by C：<http://yafeng.linuxd.org/pimark.htm>   
-Order by GMP：<http://yafeng.linuxd.org/gmpimark.htm>   
+Order by C：<http://baobi.xyz/pimark.htm>   
+Order by GMP：<http://baobi.xyz/gmpimark.htm>   
 
 if you want to compare gcc and clang,please install clang.  
 如果想比较GCC、clang的效率，请安装clang。
