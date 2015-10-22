@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html><head>
+    <!--
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Pimark home </title>
+    <!-- Bootstrap -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            padding:50px;
+            margin:0px;
+            background-color: #f3f3f3;
+            }
+        .section{
+            border-radius: 5px;
+            border: solid 1px #adadad;
+            padding: 5px;
+            width: 70%;
+            float: left;
+        }
+        .comment{
+            width: 30%;
+            float: right;
+            padding: 5px;
+            padding-left: 10px;
+            border: solid 1px #adadad;
+            border-radius: 5px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.htm">PiMark Home</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- <li><a href="#">Home</a></li> -->
+                    <li><a href="pimark.htm">Order By C</a></li>
+                    <li><a href="gmpimark.htm">Order By GMP</a></li>
+                    <li><a href="mtgmpimark.htm">Order By MtGMP</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    
+    <div class="container">
+            <h2>PiMark</h2>
+            <div class="section">
+                <p>
+                这是一个用计算10万位圆周率的来测试CPU性能的程序，算法为经典的J.Marchin公式，虽然这个公式肯定不是最快的
+                算法，但这个测试本意就是用算法撑爆CPU来测试CPU计算能力，算法的快慢也就不是那么重要了。
+                </p>
+                程序中包含下列几个算法：
+                <ul>
+                    <li>
+                        pi.c为用C语言+数组的实现，效率较低，并且基本没有针对各种CPU做优化，因此也是最不公平
+                        的一个算法（很多老架构的CPU因为频率高，会击败一些低频的新CPU）。
+                        <br><a href="pimark.htm">查看以该算法排序的结果猛击这里</a>
+                    </li>
+                    <li>
+                        gmpi.cpp为C++调用GMP库完成的同样的算法，因为GMP库是一个效率很高的大数库，并且针对不同的CPU做过优化
+                        所以相对来说，更能展现出新架构CPU的威力，并且完成同样位数圆周率的时间远小于C语言的数组算法，由此可以看出
+                        调用运算库实现算法，一般来说比自己实现的要高效的多。因为一般写运算库的那群天才比我们更熟悉编译器与CPU指令
+                        的效率。
+                        <br><a href="gmpimark.htm">查看以该算法排序的结果猛击这里</a>
+                    </li>
+                    <li>
+                        mtgmpi.c为网上找的一个调用GMP实现的一个多线程的算法，据介绍是40万位的pi，我没有仔细看，不过就其输出的
+                        结果来看貌似远小于40万位，不过这不是问题，我们做的只是测试CPU性能，仅此而已，认真就输了^_^。
+                        <br><a href="mtgmpimark.htm">查看以该算法排序的结果猛击这里</a>
+                    </li>
+                </ul>
+                <p>
+                    测试方法：
+                </p>
+                <ol>
+                    <li>
+                        首先，如果您安装了git并且熟悉它的使用请用下面的命令获取源码：<br>
+                        <code>
+                             git clone https://github.com/yafengabc/pimark.git
+                        </code><br>
+                        如果完全不知道git是什么，也没关系，也可以可以用wget直接下载zip文件：<br>
+                        <code>
+                            wget https://github.com/yafengabc/pimark/archive/master.zip
+                        </code><br>
+                        如果也不知道wget是什么，那也可以用浏览器下载：<br>
+                        <a href="https://github.com/yafengabc/pimark/archive/master.zip">
+                            https://github.com/yafengabc/pimark/archive/master.zip
+                        </a><br>
+                        git下载的代码无需解压缩，下载的zip文件需要解压缩，请自备解压缩软件。<br><br>
+                    </li>
+                    <li>
+                        安装运行需要的依赖：<br>
+                        测试前需要安装好gcc、python、gmp<br>
+                        如果你用的是Arch，用pacman安装这几个库就行了：<br>
+                        <code>
+                            pacman -S gcc gmp python
+                        </code><br>
+                        如果你用的是Debian、Ubuntu、mint之类的deb系发行版，请安装gcc g++ python libgmp-dev:<br>
+                        <code>
+                            apt-get install gcc g++ python libgmp-dev
+                        </code><br>
+                        如果用的是gentoo，估计怎么装依赖你比我还清楚，直接下一步就好了……<br><br>
+                    </li>
+                    <li>
+                        测试：<br>
+                        首先打开终端并进入源代码目录：<br>
+                        <code>cd pimark</code><br>
+                        执行里边的python脚本测试：
+                        如果你系统的python是3.x版本，就执行test.py文件：<br>
+                        <code>
+                            ./test.py
+                        </code><br>
+                        如果系统的python版本是2.x,则执行test.py2文件：<br>
+                        <code>
+                            ./test.py2
+                        </code><br>
+                    </li>
+                </ol>
+            </div>
+            <div class="comment">
+                <div class="ds-thread"></div>
+                <!--多说js加载开始，一个页面只需要加载一次 -->
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"yafengabc"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = 'http://static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!--多说js加载结束，一个页面只需要加载一次 -->
+            </div>
+
+    </div>
+
+    
+</body>
+</html>
