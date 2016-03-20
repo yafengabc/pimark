@@ -55,6 +55,7 @@ def postd():
 @app.get("/install")
 def static():
     try:
+        makehtml.makehtml()
         import sae.kvdb
         kv=sae.kvdb.Client()
         fi=open('index.htm')

@@ -18,7 +18,7 @@
     
     <style>
         body{
-            padding:50px;
+            padding-top:50px;
             margin:0px;
             background-color: #f3f3f3;
             }
@@ -38,13 +38,17 @@
             border-radius: 5px;
         }
 
+        #footer{
+            text-align:center
+        }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -66,6 +70,13 @@
     <div class="container">
             <h2>PiMark</h2>
             <div class="section">
+                <p><font color='red'>
+                注意：这个程序会上传结果到本网站并参加排名，为了区分各位的CPU，本程序会读取CPU型号，当前登录用户名等信息，对
+                隐私有顾虑的请不要做这个测试，或者自己修改代码把最后的提交代码注释掉。
+                <p>
+                另,因SAE开始收费，此应用转回VPS，请做测试前，先用git pull命令获取最新的代码。
+                </font>
+
                 <p>
                 这是一个用计算10万位圆周率的来测试CPU性能的程序，算法为经典的J.Marchin公式，虽然这个公式肯定不是最快的
                 算法，但这个测试本意就是用算法撑爆CPU来测试CPU计算能力，算法的快慢也就不是那么重要了。
@@ -153,7 +164,13 @@
                 </script>
                 <!--多说js加载结束，一个页面只需要加载一次 -->
             </div>
-
+            <div id="footer">
+                <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <span>Powered by Yafeng,2015-2016</span>
+                <span id="busuanzi_container_site_pv">本站总访问IP:<span id="busuanzi_value_site_uv"></span>次</span>
+                <span id="busuanzi_container_site_pv">本站总点击量<span id="busuanzi_value_site_pv"></span>次</span>
+                <span id="busuanzi_container_page_pv">本文阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+            </div>
     </div>
 
     

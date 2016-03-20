@@ -28,7 +28,7 @@ def makehtml():
     kv.set(html2,output)
     print("::make html2 ok")
 
-    cur.execute("select * from pimark order by MTGMPI asc")
+    cur.execute("select * from pimark where MTGMPI > 0 order by MTGMPI asc")
     res=cur.fetchall()
     output=template("makehtml",rows=res,pi="MtGMP")
     kv=sae.kvdb.Client()

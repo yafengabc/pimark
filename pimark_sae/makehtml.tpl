@@ -24,6 +24,10 @@
         div{
             margin:0px;
             }
+        #footer{
+            text-align:center
+        }
+        
     </style>
   </head>
   <body>
@@ -83,8 +87,16 @@
                     %end
                 </table>
             </div>
-        </div>
+     <div id="footer">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span>Powered by Yafeng,2015-2016</span>
+        <span id="busuanzi_container_site_pv">本站总访问IP:<span id="busuanzi_value_site_uv"></span>次</span>
+        <span id="busuanzi_container_site_pv">本站总点击:<span id="busuanzi_value_site_pv"></span>次</span>
+        <span id="busuanzi_container_page_pv">本文阅读量:<span id="busuanzi_value_page_pv"></span>次</span>
     </div>
 
+
+        </div>
+    </div>
     
 </body></html>
