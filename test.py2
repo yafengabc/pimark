@@ -112,7 +112,7 @@ if  os.path.exists(gcc):
 ####Commit the result to internel
 import urllib
 import urllib2
-url="http://baobi.xyz/send"
+url="http://pimark.top/send"
 #url="http://127.0.0.1:8080/send"
 if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     print("::File size is{0},{1},{2}..OK".format(sizepi,sizegmpi,sizemtgmpi))
@@ -123,6 +123,6 @@ if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     response = urllib2.urlopen(pst)
     print("::{0}".format(response.readline().decode().strip()))
     #print("::{0}".format(pst.read().decode().strip()))
-    print("::Visit:http://baobi.xyz")
+    print("::Visit:http://pimark.top")
 else:
     print("!!! File size is not ok!")

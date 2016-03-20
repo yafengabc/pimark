@@ -114,7 +114,7 @@ if  os.path.exists(gcc):
 import urllib
 import urllib.parse
 import urllib.request
-url="http://baobi.xyz/send"
+url="http://pimark.top/send"
 #url="http://pimark.applinzi.com/send"
 if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     print("::File size is{0},{1},{2}..OK".format(sizepi,sizegmpi,sizemtgmpi))
@@ -122,6 +122,6 @@ if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     #print(result)
     pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     print("::{0}".format(pst.readline().decode().strip()))
-    print("::Visit:http://baobi.xyz")
+    print("::Visit:http://pimark.top")
 else:
     print("!!! File size is not ok!")
