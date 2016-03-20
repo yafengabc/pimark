@@ -13,6 +13,8 @@
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" >
+    <link rel="icon" type="image/gif" href="favicon.gif" >
     <style>
         body{
             padding:0px;
@@ -22,6 +24,10 @@
         div{
             margin:0px;
             }
+        #footer{
+            text-align:center
+        }
+        
     </style>
   </head>
   <body>
@@ -34,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.htm">PiMark Home</a>
+                <a class="navbar-brand" href="index.htm">PiMark Home</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,6 +48,7 @@
                     <li><a href="pimark.htm">Order By C</a></li>
                     <li><a href="gmpimark.htm">Order By GMP</a></li>
                     <li><a href="mtgmpimark.htm">Order By MtGMP</a></li>
+                    <li><a href="armpimark.htm">Order Only ARM</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -81,8 +88,16 @@
                     %end
                 </table>
             </div>
-        </div>
+     <div id="footer">
+        <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span>Powered by Yafeng,2015-2016</span>
+        <span id="busuanzi_container_site_pv">本站总访问IP:<span id="busuanzi_value_site_uv"></span>次</span>
+        <span id="busuanzi_container_site_pv">本站总点击:<span id="busuanzi_value_site_pv"></span>次</span>
+        <span id="busuanzi_container_page_pv">本文阅读量:<span id="busuanzi_value_page_pv"></span>次</span>
     </div>
 
+
+        </div>
+    </div>
     
 </body></html>

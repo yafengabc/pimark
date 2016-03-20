@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+
+import sqlite3
+import os
+from bottle import template
+html="/myblog/public/pimark.htm"
+html2="/myblog/public/gmpimark.htm"
+
+def makehtml():
+    db=sqlite3.connect("test.db")
+    cur=db.execute("select * from pimark order by PIC asc")
+    res=cur.fetchall()
+    output=template("makehtml",rows=res,pi="C")
+    if os.path.exists(html):
+        os.remove(html)
+
+    fi=open(html,'w')
+    fi.write(output)
+    fi.close()
+    print("::make pi.htm ok")
+    db=sqlite3.connect("test.db")
+    cur=db.execute("select * from pimark order by GMPI asc")
+    res=cur.fetchall()
+    output=template("makehtml",rows=res,pi="GMP")
+    if os.path.exists(html2):
+        os.remove(html2)
+
+    fi=open(html2,'w')
+    fi.write(output)
+    fi.close()
+    print("::make gmpi.htm ok")
+
+
+
+
+
+
+
+if __name__=="__main__":
+    makehtml()
