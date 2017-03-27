@@ -112,17 +112,17 @@ if  os.path.exists(gcc):
 ####Commit the result to internel
 import urllib
 import urllib2
-url="http://pimark.top/send"
+url="http://pimark.win/send"
 #url="http://127.0.0.1:8080/send"
 if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     print("::File size is{0},{1},{2}..OK".format(sizepi,sizegmpi,sizemtgmpi))
-    print("::Start to commit the result to internel...")
+    print("::Start to commit the result to internet...")
     #print(result)
     #pst=urllib.request.urlopen(url,str(result).encode('utf-8'))
     pst=urllib2.Request(url,str(result).encode('utf-8'))
     response = urllib2.urlopen(pst)
     print("::{0}".format(response.readline().decode().strip()))
     #print("::{0}".format(pst.read().decode().strip()))
-    print("::Visit:http://pimark.top")
+    print("::Visit:http://pimark.win")
 else:
     print("!!! File size is not ok!")
