@@ -1,4 +1,6 @@
 # pimark
+# 更新
+2019年9月29日：增加termux.py,可以在安卓下安装termux然后作测试。
 
 This is a pi benchmark to calc 100,000 pi  
 这是一个计算10万位圆周率的测试程序，
