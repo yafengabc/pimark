@@ -114,7 +114,7 @@ if  os.path.exists(gcc):
 import urllib
 import urllib.parse
 import urllib.request
-url="http://pimark.win/send"
+url="http://pimark.top/send"
 #url="http://pimark.applinzi.com/send"
 if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     print("::File size is{0},{1},{2}..OK".format(sizepi,sizegmpi,sizemtgmpi))
