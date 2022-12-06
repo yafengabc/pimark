@@ -123,6 +123,6 @@ if sizepi==100003 and sizegmpi==100012 and sizemtgmpi==40015:
     response = urllib2.urlopen(pst)
     print("::{0}".format(response.readline().decode().strip()))
     #print("::{0}".format(pst.read().decode().strip()))
-    print("::Visit:http://pimark.win")
+    print("::Visit:http://pimark.top")
 else:
     print("!!! File size is not ok!")
